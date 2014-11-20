@@ -1,11 +1,16 @@
 CFLAGS=`llvm-config --cflags`
+CXXFLAGS=`llvm-config --cxxflags`
+LDFLAGS=`llvm-config --ldflags`
+LDLIBS=`llvm-config --libs --system-libs`
 
-.PHONY: all clean
+OBJECTS=$(patsubst %.c, %.o, $(wildcard *.c))
+
+.PHONY: all sample clean
 
 all: sample
 
-sample: sample.o
-	$(CXX) $< `llvm-config --cxxflags --ldflags --libs` -o $@
+sample: $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
 clean:
 	rm -f sample *.o
