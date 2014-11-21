@@ -5,7 +5,7 @@ LDLIBS=`llvm-config --libs --system-libs`
 
 OBJECTS=$(patsubst %.c, %.o, $(wildcard *.c))
 
-.PHONY: all sample clean
+.PHONY: all clean
 
 all: sample
 
