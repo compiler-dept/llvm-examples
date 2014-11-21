@@ -13,4 +13,4 @@ sample: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
 clean:
-	rm -f sample *.o
+	rm -f sample $(OBJECTS)
