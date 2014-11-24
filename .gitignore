@@ -1,2 +1,4 @@
+main
 sample
 *.o
+*.bc

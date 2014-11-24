@@ -2,6 +2,7 @@
 #include <llvm-c/Analysis.h>
 #include <llvm-c/Target.h>
 #include <llvm-c/ExecutionEngine.h>
+#include <llvm-c/BitWriter.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <inttypes.h>
@@ -50,6 +51,7 @@ int main(int argc, char **argv)
     fprintf(stderr, "Result: %hhd\n\n", fp(1, 2));
 
     LLVMDumpModule(module);
+    LLVMWriteBitcodeToFile(module, "add.bc");
 
     LLVMDisposePassManager(pass_mgr);
     LLVMDisposeBuilder(builder);
