@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 
 
   LLVMDumpModule(module);
-  LLVMWriteBitcodeToFile(module, "wrap.ll");
+  LLVMWriteBitcodeToFile(module, "wrap.bc");
 
   LLVMDisposeBuilder(builder);
   LLVMDisposeModule(module);

@@ -3,12 +3,12 @@ CXXFLAGS = `llvm-config --cxxflags`
 LDFLAGS = `llvm-config --ldflags`
 LDLIBS = `llvm-config --libs --system-libs`
 
-main : main.o wrap.s
+main : main.s func.c
 
-wrap.s : wrap.bc
-	llc wrap.bc
+main.s : main.bc
+	llc main.bc
 
-wrap.bc : codegen
+main.bc : codegen
 	./codegen
 
 codegen : codegen.o
